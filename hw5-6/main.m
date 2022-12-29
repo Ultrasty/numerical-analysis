@@ -1,0 +1,10 @@
+L = [0 0];
+R = [4 4];
+len =10;
+F1 = @(c) c(3) + c(2)*cosh((L(1)-c(1))/c(2)) - L(2);
+F2 = @(c) c(3) + c(2)*cosh((R(1)-c(1))/c(2)) - R(2);
+F3 = @(c) integral(@(x)sqrt(1+(sinh((x-c(1))/c(2))).^2),L(1),R(1)) - len;
+c = fsolve(@(c) [F1(c);F2(c);F3(c)],[-1,1,1]);
+x = linspace(0,4,100);
+y = c(3) + c(2).*cosh((x-c(1))./c(2));
+plot(x,y);
