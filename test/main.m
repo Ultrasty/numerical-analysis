@@ -1,13 +1,13 @@
 %% QR法
-A = [5 -2 -5 -1;1 0 -3 2;0 2 2 -3;0 0 1 -2];
-tol = 1e-7;
+A = [6 3 1;2 4 3;1 4 7];
+tol = 1e-20;
 k = 1;
 AA = A;
 n = size(A,1);
 A0 = zeros(n);
 V = A0;
 count = 0;
-while norm( diag(A-A0) ) > tol && count < 10000
+while norm( diag(A-A0) ) > tol
     count = count +1;
     k = k + 1;
     A0 = A;
